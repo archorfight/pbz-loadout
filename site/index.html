@@ -34,7 +34,7 @@
       <p class="sub">30+ main weapons. 25 Phantom Edges. Four equipped slots. This guide covers every weapon system S-GAME has officially confirmed — and clearly marks what can only be verified after launch.</p>
       <div class="hero-meta">
         <a class="cta" href="/weapons/">Enter the arsenal →</a>
-        <div class="countdown"><span class="cd-l">LAUNCH</span><b>29.10.2026</b><span class="cd-l">3M+ WISHLISTS</span></div>
+        <div class="countdown"><span class="cd-l">LAUNCH</span><b class="cd-live" id="cd">&mdash;</b><span class="cd-l">3M+ WISHLISTS</span></div>
       </div>
     </div>
     <div class="hero-credit">Key art © S-GAME / Phantom Blade Zero</div>
@@ -85,11 +85,51 @@
 
 <footer>
   <div class="wrap">
-    <p>Unofficial fan resource. Phantom Blade Zero is a trademark of S-GAME; not affiliated with or endorsed by S-GAME. Weapon counts and systems per official State of Play and developer communications.</p>
-    <p style="margin-top:10px"><a href="/about/">About</a> · <a href="/faq/">FAQ</a> · Data policy: official facts only until launch</p>
+    <div class="foot-grid">
+      <div>
+        <h4>Phantom Blade Loadout</h4>
+        <p style="font-size:.88rem;max-width:420px">Unofficial fan resource for Phantom Blade Zero's weapon system. Official facts only until launch — real stats, upgrade trees and a loadout calculator arrive on day one.</p>
+      </div>
+      <div>
+        <h4>Guides</h4>
+        <ul>
+          <li><a href="/weapons/">Weapons system</a></li>
+          <li><a href="/weapons/confirmed/">Confirmed weapons list</a></li>
+          <li><a href="/phantom-edges/">Phantom Edges</a></li>
+          <li><a href="/difficulty/">Difficulty modes</a></li>
+          <li><a href="/faq/">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Data policy</h4>
+        <ul>
+          <li><span class="status-flag confirmed">OFFICIAL</span> — S-GAME confirmed</li>
+          <li><span class="status-flag pending">POST-LAUNCH</span> — verifiable Oct 29</li>
+          <li><a href="/about/">About &amp; contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 · unofficial fan project · not affiliated with S-GAME</span>
+      <span class="mono" style="font-size:.72rem">Last updated: Oct 2, 2026</span>
+    </div>
   </div>
 </footer>
-<script>document.documentElement.classList.add("js");(function(){
+<script>document.documentElement.classList.add("js");
+(function(){
+  var t=new Date("2026-10-29T00:00:00+08:00").getTime();
+  function tick(){
+    var d=Math.max(0,t-Date.now());
+    var el=document.getElementById("cd");
+    if(!el)return;
+    if(d<=0){el.textContent="OUT NOW";return}
+    var days=Math.floor(d/864e5),h_=Math.floor(d%864e5/36e5),m=Math.floor(d%36e5/6e4),s=Math.floor(d%6e4/1e3);
+    el.textContent=days+"d "+String(h_).padStart(2,"0")+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+    setTimeout(tick,1000);
+  }
+  tick();
+})();
+(function(){
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
 })();
