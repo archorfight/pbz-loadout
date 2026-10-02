@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /about/
+Sitemap: https://pbz-loadout.pages.dev/sitemap.xml

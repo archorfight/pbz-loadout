@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phantom Blade Zero FAQ — Confirmed Facts, Dates and Systems</title>
+<meta name="description" content="Every confirmed Phantom Blade Zero fact: release date, platforms, weapon counts, difficulty modes, editions — with an explicit marker on what is not yet knowable before launch.">
+<link rel="canonical" href="https://pbz-loadout.pages.dev/faq/">
+<style>
+:root{--bg:#14100d;--surface:#1e1813;--border:#3a2f24;--text:#ece4d8;--muted:#a89880;--accent:#d4a24e;--red:#c2452d;--gold:#e8c887}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Georgia,'Times New Roman',serif;background:var(--bg);color:var(--text);line-height:1.7}
+.wrap{max-width:880px;margin:0 auto;padding:0 24px}
+header{border-bottom:1px solid var(--border);background:#1a140f}
+header .wrap{display:flex;align-items:center;justify-content:space-between;padding:18px 24px}
+.logo{font-weight:700;font-size:1.15rem;color:var(--gold);text-decoration:none}
+.logo span{color:var(--muted);font-weight:400;font-size:.75rem;display:block;letter-spacing:.18em;text-transform:uppercase}
+nav a{color:var(--muted);text-decoration:none;margin-left:22px;font-size:.92rem}
+nav a:hover{color:var(--accent)}
+main{padding:48px 0}
+.kicker{color:var(--red);letter-spacing:.3em;text-transform:uppercase;font-size:.75rem;margin-bottom:12px}
+h1{font-size:2rem;line-height:1.25;margin-bottom:28px}
+details{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:16px 22px;margin-bottom:12px}
+summary{cursor:pointer;font-weight:700;color:var(--gold)}
+details p{margin-top:12px;color:#d8ccb8}
+footer{border-top:1px solid var(--border);padding:32px 0;color:var(--muted);font-size:.85rem}
+footer a{color:var(--muted)}
+.status-flag{display:inline-block;font-size:.72rem;padding:2px 9px;border-radius:3px;font-family:Menlo,monospace}
+.confirmed{background:#1d3323;color:#7fc98f;border:1px solid #2e5540}
+.pending{background:#332a1d;color:#d9b36a;border:1px solid #55452c}
+</style>
+<script type="application/ld+json" id="faqld">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[]}</script>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="/">Phantom Blade Loadout<span>weapons · builds · data</span></a>
+  <nav><a href="/">Home</a><a href="/weapons/">Weapons</a><a href="/phantom-edges/">Phantom Edges</a><a href="/difficulty/">Difficulty</a></nav>
+</div></header>
+<main><div class="wrap">
+  <div class="kicker">FAQ</div>
+  <h1>Phantom Blade Zero: Confirmed Facts Only</h1>
+
+  <details open><summary>When does Phantom Blade Zero release?</summary><p>October 29, 2026, on PS5, Steam and Epic Games Store. <span class="status-flag confirmed">OFFICIAL</span></p></details>
+  <details><summary>How many weapons are in Phantom Blade Zero?</summary><p>More than 30 main weapons plus 25 Phantom Edges — 55+ weapons total, confirmed at the August 2026 State of Play. <span class="status-flag confirmed">OFFICIAL</span></p></details>
+  <details><summary>Is there a weapon tier list?</summary><p>Not an honest one yet — the game is unreleased. Sites publishing damage tables today cannot have measured them. Our tier list arrives with verified post-launch data. <span class="status-flag pending">POST-LAUNCH</span></p></details>
+  <details><summary>How does the loadout system work?</summary><p>Four slots: two main weapons (swappable mid-combat) plus two Phantom Edges. Weapons come from defeated foes, upgrade into new forms, and reforge returns all materials. <span class="status-flag confirmed">OFFICIAL</span></p></details>
+  <details><summary>What are the difficulty modes?</summary><p>Four: Wayfarer (story), Pathbreaker (standard), Hellwalker (challenge) and Sixty-Six Days (permadeath). <span class="status-flag confirmed">OFFICIAL</span></p></details>
+  <details><summary>Who makes it, and how big is the interest?</summary><p>S-GAME, created by Qi Chang (Soulframe). Official channels confirmed 3M+ wishlists across platforms as of September 2026. <span class="status-flag confirmed">OFFICIAL</span></p></details>
+  <details><summary>Will this site have a build calculator?</summary><p>Yes — launching with the game on October 29: weapon stat comparison, four-slot loadout planner, and upgrade-path tracking, all from verified in-game data. <span class="status-flag pending">POST-LAUNCH</span></p></details>
+  <details><summary>Why do you mark things OFFICIAL vs POST-LAUNCH?</summary><p>Because pre-release misinformation is already rampant — fabricated damage tables, invented weapon lists. We only state what S-GAME has confirmed, and label everything else honestly. When the game is out, measured data replaces every marker.</p></details>
+</div></main>
+<footer><div class="wrap">
+  <p>Unofficial fan resource; not affiliated with S-GAME. Trademarks belong to their owners.</p>
+  <p style="margin-top:8px"><a href="/">Home</a> · <a href="/about/">About</a></p>
+</div></footer>
+<script>
+// FAQPage JSON-LD generated from visible <details> blocks — never out of sync
+(function(){
+  var qs=[...document.querySelectorAll('details')].map(d=>({
+    "@type":"Question",name:d.querySelector('summary').textContent.trim(),
+    acceptedAnswer:{"@type":"Answer",text:d.querySelector('p').textContent.trim()}
+  }));
+  document.getElementById('faqld').textContent=JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":qs});
+})();
+</script>
+</body>
+</html>
