@@ -10,6 +10,16 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"VideoGame",
+ "name":"Phantom Blade Zero",
+ "releaseDate":"2026-10-29",
+ "gamePlatform":["PlayStation 5","PC"],
+ "playMode":"SinglePlayer",
+ "author":{"@type":"Organization","name":"S-GAME"},
+ "genre":["Action RPG","Soulslike"],
+ "description":"Kung-Fu Punk action RPG with 30+ main weapons, 25 Phantom Edges and a four-slot loadout system."}
+</script>
 </head>
 <body>
 <header>
@@ -36,6 +46,12 @@
         <a class="cta" href="/weapons/">Enter the arsenal →</a>
         <div class="countdown"><span class="cd-l">LAUNCH</span><b class="cd-live" id="cd">&mdash;</b><span class="cd-l">3M+ WISHLISTS</span></div>
       </div>
+      <form class="notify" id="notify-form" action="https://formspree.io/f/pbzloadout" method="POST">
+        <input type="email" name="email" required placeholder="you@example.com" aria-label="Email">
+        <input type="hidden" name="source" value="hero">
+        <button type="submit">Get launch-day data alerts</button>
+        <span class="notify-note" id="notify-note">One email when the weapon database goes live. No spam.</span>
+      </form>
     </div>
     <div class="hero-credit">Key art © S-GAME / Phantom Blade Zero</div>
   </div>
@@ -94,6 +110,7 @@
         <h4>Guides</h4>
         <ul>
           <li><a href="/weapons/">Weapons system</a></li>
+          <li><a href="/news/">News timeline</a></li>
           <li><a href="/weapons/confirmed/">Confirmed weapons list</a></li>
           <li><a href="/phantom-edges/">Phantom Edges</a></li>
           <li><a href="/difficulty/">Difficulty modes</a></li>
@@ -128,6 +145,16 @@
     setTimeout(tick,1000);
   }
   tick();
+})();
+(function(){
+  var f=document.getElementById("notify-form");
+  if(f){f.addEventListener("submit",function(e){
+    e.preventDefault();
+    var note=document.getElementById("notify-note");
+    fetch(f.action,{method:"POST",body:new FormData(f),headers:{"Accept":"application/json"}})
+      .then(function(){f.classList.add("done");note.textContent="✓ You're on the list — see you on launch day.";})
+      .catch(function(){note.textContent="Something went wrong — retry in a moment.";});
+  });}
 })();
 (function(){
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.08});
