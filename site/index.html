@@ -46,9 +46,9 @@
         <a class="cta" href="/weapons/">Enter the arsenal →</a>
         <div class="countdown"><span class="cd-l">LAUNCH</span><b class="cd-live" id="cd">&mdash;</b><span class="cd-l">3M+ WISHLISTS</span></div>
       </div>
-      <form class="notify" id="notify-form" action="https://formspree.io/f/pbzloadout" method="POST">
-        <input type="email" name="email" required placeholder="you@example.com" aria-label="Email">
-        <input type="hidden" name="source" value="hero">
+      <form class="notify" id="notify-form">
+        <input type="email" name="email" id="notify-email" required placeholder="you@example.com" aria-label="Email">
+        <input type="text" name="company_website" id="notify-hp" style="position:absolute;left:-9999px;top:-9999px" tabindex="-1" autocomplete="off" aria-hidden="true">
         <button type="submit">Get launch-day data alerts</button>
         <span class="notify-note" id="notify-note">One email when the weapon database goes live. No spam.</span>
       </form>
@@ -151,9 +151,16 @@
   if(f){f.addEventListener("submit",function(e){
     e.preventDefault();
     var note=document.getElementById("notify-note");
-    fetch(f.action,{method:"POST",body:new FormData(f),headers:{"Accept":"application/json"}})
-      .then(function(){f.classList.add("done");note.textContent="✓ You're on the list — see you on launch day.";})
-      .catch(function(){note.textContent="Something went wrong — retry in a moment.";});
+    var email=document.getElementById("notify-email").value.trim();
+    var hp=document.getElementById("notify-hp").value;
+    fetch("https://leadcapture.pengarchersir.workers.dev/subscribe",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({email:email,site:"pbz",source:"hero",hp:hp})
+    }).then(function(r){return r.json()}).then(function(d){
+      if(d.ok){f.classList.add("done");note.textContent="\u2713 You're on the list \u2014 see you on launch day.";}
+      else{note.textContent="Hmm, that didn't work \u2014 check the email and retry.";}
+    }).catch(function(){note.textContent="Network hiccup \u2014 retry in a moment.";});
   });}
 })();
 (function(){
