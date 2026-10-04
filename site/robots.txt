@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /about/
-Sitemap: https://pbz-loadout.pages.dev/sitemap.xml
+Sitemap: https://www.pbzloadout.xyz/sitemap.xml

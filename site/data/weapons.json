@@ -1,0 +1,24 @@
+{
+  "_meta": {
+    "version": "2026-10-04.1",
+    "note": "Launch-day data feed for pbzloadout.xyz. On Oct 29: update this file, push, CI deploys. Keep every entry sourced. badge: OFFICIAL (S-GAME confirmed) | COMMUNITY (named in official footage breakdowns) | PENDING (awaiting launch verification). Stats fields null until verified in-game.",
+    "updated": "2026-10-04"
+  },
+  "weapons": [
+    {"slug": "sanguine", "name": "Sanguine", "type": "Longsword", "badge": "COMMUNITY", "source": "official trailer breakdown", "stats": null, "notes": "Shown in August 2026 trailer footage"},
+    {"slug": "jagged-edge", "name": "Jagged Edge", "type": null, "badge": "COMMUNITY", "source": "official trailer breakdown", "stats": null, "notes": null},
+    {"slug": "seamless-death", "name": "Seamless Death", "type": null, "badge": "COMMUNITY", "source": "official trailer breakdown", "stats": null, "notes": null},
+    {"slug": "soft-snake-sword", "name": "Soft Snake Sword", "type": null, "badge": "COMMUNITY", "source": "official trailer breakdown", "stats": null, "notes": null}
+  ],
+  "phantom_edges": {"confirmed_count": 25, "named": [], "badge": "OFFICIAL", "stats": null},
+  "bosses": [
+    {"slug": null, "name": "(list pending — populate from official trailers/demo before Oct 29)", "badge": "PENDING", "source": null, "stats": null}
+  ],
+  "difficulty": {
+    "badge": "OFFICIAL",
+    "facts": [
+      "Adaptive difficulty system officially confirmed",
+      "Details pending launch verification"
+    ]
+  }
+}
