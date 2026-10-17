@@ -9,7 +9,7 @@ def get(u):
 
 checks = []
 home = get("https://pbz-loadout.pages.dev/")
-checks.append(("canonical→pages.dev", 'href="https://pbz-loadout.pages.dev/"' in home))
+checks.append(("canonical→www.pbzloadout.xyz", 'href="https://www.pbzloadout.xyz/"' in home))
 weapons = get("https://pbz-loadout.pages.dev/weapons/")
 checks.append(("weapons OFFICIAL badges", weapons.count("OFFICIAL") >= 4))
 faq = get("https://pbz-loadout.pages.dev/faq/")
