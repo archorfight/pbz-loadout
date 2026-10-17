@@ -1,0 +1,10 @@
+{
+  "run": "20261017-231320",
+  "fetched": 0,
+  "weapon_candidates": 0,
+  "new_candidates": 0,
+  "errors": [
+    "reddit-phantombladezero: Expecting value: line 2 column 5 (char 5)"
+  ],
+  "candidates": []
+}

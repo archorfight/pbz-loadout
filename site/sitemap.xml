@@ -18,4 +18,9 @@
     <priority>0.7</priority>
   </url>
 <url><loc>https://www.pbzloadout.xyz/guides/pre-order/</loc><lastmod>2026-10-17</lastmod><priority>0.9</priority></url>
+  <url>
+    <loc>https://www.pbzloadout.xyz/weapons/db/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>

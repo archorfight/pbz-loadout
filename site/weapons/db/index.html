@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phantom Blade Zero Weapon Database — Compare All Stats</title>
+<meta name="description" content="Sortable, filterable Phantom Blade Zero weapon database: every main weapon and Phantom Edge with attack, speed and effects. Updated live with verified launch data.">
+<link rel="canonical" href="https://www.pbzloadout.xyz/weapons/db/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="PBZ Loadout">
+<meta property="og:title" content="Phantom Blade Zero Weapon Database — Compare All Stats">
+<meta property="og:description" content="Sortable, filterable weapon and Phantom Edge stats for Phantom Blade Zero.">
+<meta property="og:url" content="https://www.pbzloadout.xyz/weapons/db/">
+<meta property="og:image" content="https://www.pbzloadout.xyz/assets/img/hero-keyart.webp">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Phantom Blade Zero Weapon Database">
+<meta name="twitter:description" content="Sortable, filterable weapon and Phantom Edge stats for Phantom Blade Zero.">
+<meta name="twitter:image" content="https://www.pbzloadout.xyz/assets/img/hero-keyart.webp">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/style.css">
+<style>
+.db-controls{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 14px;align-items:center}
+.db-controls select,.db-controls input{background:#15171b;color:#e8e4d8;border:1px solid #3a3e46;border-radius:6px;padding:8px 12px;font-family:'Space Grotesk',sans-serif;font-size:14px}
+.db-controls input{min-width:200px}
+.db-tab{background:transparent;border:1px solid #3a3e46;border-radius:6px;color:#b9b2a0;padding:8px 16px;cursor:pointer;font-family:'Space Grotesk',sans-serif;font-size:14px}
+.db-tab.active{border-color:#c9a45c;color:#e8d9b0}
+table.db{width:100%;border-collapse:collapse;margin:14px 0 30px}
+table.db th{cursor:pointer;user-select:none;text-align:left;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.08em;color:#c9a45c;padding:10px 12px;border-bottom:2px solid #3a3e46;white-space:nowrap}
+table.db th:hover{color:#e8d9b0}
+table.db th .arr{opacity:.4;font-size:10px}
+table.db td{padding:10px 12px;border-bottom:1px solid #23262c;font-size:14px}
+table.db tr:hover td{background:rgba(201,164,92,.05)}
+.num{font-family:'JetBrains Mono',monospace}
+.db-updated{font-size:12px;color:#7d7768;font-family:'JetBrains Mono',monospace;margin-top:4px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <a class="logo" href="/">Phantom Blade Loadout<span>weapons · builds · data</span></a>
+  <nav><a href="/">Home</a><a href="/weapons/">Weapons</a><a href="/bosses/">Bosses</a><a href="/phantom-edges/">Phantom Edges</a><a href="/difficulty/">Difficulty</a><a href="/faq/">FAQ</a></nav>
+</div></header>
+<main>
+<div class="hero" style="min-height:40svh">
+  <div class="hero-bg" style="background-position:center 30%"></div>
+  <div class="hero-scrim" style="background:linear-gradient(0deg, rgba(10,11,13,.96) 0%, rgba(10,11,13,.55) 45%, rgba(10,11,13,.35) 100%)"></div>
+  <div class="wrap" style="padding-bottom:36px;padding-top:70px">
+  <div class="kicker">Database</div>
+  <h1>Weapon Database</h1>
+  <p class="sub">Every weapon and Phantom Edge, sortable and filterable. Data feeds in live after launch.</p>
+  </div>
+</div>
+<div class="wrap">
+  <div class="db-controls">
+    <button class="db-tab active" id="tab-main" onclick="PBZDB.switchTab('main')">Main Weapons</button>
+    <button class="db-tab" id="tab-pe" onclick="PBZDB.switchTab('pe')">Phantom Edges</button>
+    <select id="db-type" onchange="PBZDB.render()"><option value="">All types</option></select>
+    <input id="db-search" type="search" placeholder="Search name…" oninput="PBZDB.render()">
+  </div>
+  <div id="db-mount"></div>
+  <p class="db-updated" id="db-updated"></p>
+  <p style="color:#7d7768;font-size:13px">Stats show <span class="status-flag pending">POST-LAUNCH</span> until verified in-game data is published on launch day. Every entry carries its source badge.</p>
+</div>
+</main>
+<footer><div class="wrap">
+  <p>PBZ Loadout is an unofficial fan tool. Phantom Blade Zero © S-GAME / Soulframe.</p>
+</div></footer>
+<script src="/assets/data-render.js"></script>
+<script>
+var PBZDB = (function () {
+  var data = null, tab = 'main', sortKey = 'name', sortAsc = true;
+  var numKeys = ['attack', 'speed'];
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function badge(b) { return '<span class="status-flag ' + (b === 'OFFICIAL-DATA' || b === 'OFFICIAL' ? 'confirmed' : 'pending') + '">' + esc(b) + '</span>'; }
+  function cell(v, cls) { return v == null ? '<td><span class="status-flag pending">POST-LAUNCH</span></td>' : '<td class="' + (cls || '') + '">' + esc(v) + '</td>'; }
+  function load() {
+    return fetch('/data/weapons.json').then(function (r) { return r.json(); }).then(function (d) {
+      data = d;
+      var types = {};
+      d.weapons.concat(d.phantom_edges).forEach(function (w) { if (w.type) types[w.type] = 1; });
+      var sel = document.getElementById('db-type');
+      Object.keys(types).sort().forEach(function (t) { var o = document.createElement('option'); o.value = t; o.textContent = t; sel.appendChild(o); });
+      var meta = d._meta || {};
+      document.getElementById('db-updated').textContent = 'Data version: ' + (meta.version || 'n/a');
+      render();
+    });
+  }
+  function render() {
+    if (!data) return;
+    var list = (tab === 'main' ? data.weapons : data.phantom_edges).slice();
+    var q = (document.getElementById('db-search').value || '').toLowerCase();
+    var typeF = document.getElementById('db-type').value;
+    if (q) list = list.filter(function (w) { return (w.name || '').toLowerCase().indexOf(q) >= 0; });
+    if (typeF) list = list.filter(function (w) { return w.type === typeF; });
+    list.sort(function (a, b) {
+      var x = a[sortKey], y = b[sortKey];
+      if (numKeys.indexOf(sortKey) >= 0) { x = x == null ? -1 : Number(x) || 0; y = y == null ? -1 : Number(y) || 0; return sortAsc ? x - y : y - x; }
+      x = x == null ? '' : String(x).toLowerCase(); y = y == null ? '' : String(y).toLowerCase();
+      return sortAsc ? x.localeCompare(y) : y.localeCompare(x);
+    });
+    var head = '<tr>' + [['name', 'Name'], ['type', 'Type'], ['attack', 'Attack'], ['speed', 'Speed'], ['effect', 'Effect'], ['badge', 'Status']]
+      .map(function (h) { return '<th onclick="PBZDB.sortBy(\'' + h[0] + '\')">' + h[1] + ' <span class="arr">' + (sortKey === h[0] ? (sortAsc ? '▲' : '▼') : '↕') + '</span></th>'; }).join('') + '</tr>';
+    var rows = list.map(function (w) {
+      var s = w.stats || {};
+      return '<tr><td>' + esc(w.name) + '</td>' + cell(w.type) + cell(s.attack, 'num') + cell(s.speed, 'num') + cell(s.effect) + '<td>' + badge(w.badge) + '</td></tr>';
+    }).join('');
+    document.getElementById('db-mount').innerHTML = '<table class="db">' + head + (rows || '<tr><td colspan="6" style="color:#7d7768">No entries match.</td></tr>') + '</table>';
+  }
+  return {
+    load: load, render: render,
+    sortBy: function (k) { if (sortKey === k) { sortAsc = !sortAsc; } else { sortKey = k; sortAsc = true; } render(); },
+    switchTab: function (t) {
+      tab = t;
+      document.getElementById('tab-main').className = 'db-tab' + (t === 'main' ? ' active' : '');
+      document.getElementById('tab-pe').className = 'db-tab' + (t === 'pe' ? ' active' : '');
+      render();
+    }
+  };
+})();
+PBZDB.load();
+</script>
+</body>
+</html>
