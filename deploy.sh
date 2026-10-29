@@ -3,7 +3,7 @@
 # 用法: 改完 site/ 下文件 -> ./deploy.sh  (自动 commit+push+wrangler 部署)
 set -e
 cd "$(dirname "$0")"
-if ! git diff --quiet --cached && ! git diff --quiet; then
+if ! git diff --quiet HEAD; then
   git add -A
   git commit -m "deploy: $(date +%m%d-%H%M)" || true
 fi
