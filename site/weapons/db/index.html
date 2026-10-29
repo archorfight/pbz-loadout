@@ -61,7 +61,7 @@ table.db tr:hover td{background:rgba(201,164,92,.05)}
   </div>
   <div id="db-mount"></div>
   <p class="db-updated" id="db-updated"></p>
-  <p style="color:#7d7768;font-size:13px">Stats show <span class="status-flag pending">POST-LAUNCH</span> until verified in-game data is published on launch day. Every entry carries its source badge.</p>
+  <p style="color:#7d7768;font-size:13px"><b style="color:#c9a45c">Updated Oct 29 (launch day):</b> 13 weapons with damage / break values read from official demo, State of Play and preview footage. Damage is at the highest verified weapon level (Lv column). UNVERIFIED = value read off a blurred frame. Full in-game verification begins as players reach the levels shown; speed values still pending.</p>
 </div>
 </main>
 <footer><div class="wrap">
@@ -72,7 +72,7 @@ table.db tr:hover td{background:rgba(201,164,92,.05)}
 <script>
 var PBZDB = (function () {
   var data = null, tab = 'main', sortKey = 'name', sortAsc = true;
-  var numKeys = ['attack', 'speed'];
+  var numKeys = ['attack', 'speed', 'break', 'level'];
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function badge(b) { return '<span class="status-flag ' + (b === 'OFFICIAL-DATA' || b === 'OFFICIAL' ? 'confirmed' : 'pending') + '">' + esc(b) + '</span>'; }
   function cell(v, cls) { return v == null ? '<td><span class="status-flag pending">POST-LAUNCH</span></td>' : '<td class="' + (cls || '') + '">' + esc(v) + '</td>'; }
@@ -101,13 +101,13 @@ var PBZDB = (function () {
       x = x == null ? '' : String(x).toLowerCase(); y = y == null ? '' : String(y).toLowerCase();
       return sortAsc ? x.localeCompare(y) : y.localeCompare(x);
     });
-    var head = '<tr>' + [['name', 'Name'], ['type', 'Type'], ['attack', 'Attack'], ['speed', 'Speed'], ['effect', 'Effect'], ['badge', 'Status']]
-      .map(function (h) { return '<th onclick="PBZDB.sortBy(\'' + h[0] + '\')">' + h[1] + ' <span class="arr">' + (sortKey === h[0] ? (sortAsc ? '▲' : '▼') : '↕') + '</span></th>'; }).join('') + '</tr>';
+    var head = '<tr>' + [['name', 'Name'], ['type', 'Type'], ['attack', 'Damage'], ['level', 'Lv'], ['break', 'Break'], ['effect', 'Effect'], ['badge', 'Status']]
+      .map(function (h) { return '<th onclick="PBZDB.sortBy(\'' + h[0] + '\')">' + h[1] + ' <span class="arr">' + (sortKey === h[0] ? (sortAsc ? '▲' : '▼') : '↕') + '</span></th>' }).join('') + '</tr>';
     var rows = list.map(function (w) {
       var s = w.stats || {};
-      return '<tr><td>' + esc(w.name) + '</td>' + cell(w.type) + cell(s.attack, 'num') + cell(s.speed, 'num') + cell(s.effect) + '<td>' + badge(w.badge) + '</td></tr>';
+      return '<tr><td>' + esc(w.name) + '</td>' + cell(w.type) + cell(s.attack, 'num') + cell(s.level, 'num') + cell(s.break, 'num') + cell(s.effect) + '<td>' + badge(w.badge) + '</td></tr>';
     }).join('');
-    document.getElementById('db-mount').innerHTML = '<table class="db">' + head + (rows || '<tr><td colspan="6" style="color:#7d7768">No entries match.</td></tr>') + '</table>';
+    document.getElementById('db-mount').innerHTML = '<table class="db">' + head + (rows || '<tr><td colspan="7" style="color:#7d7768">No entries match.</td></tr>') + '</table>';
   }
   return {
     load: load, render: render,

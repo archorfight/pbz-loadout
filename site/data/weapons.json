@@ -1,24 +1,35 @@
 {
   "_meta": {
-    "version": "2026-10-04.1",
-    "note": "Launch-day data feed for pbzloadout.xyz. On Oct 29: update this file, push, CI deploys. Keep every entry sourced. badge: OFFICIAL (S-GAME confirmed) | COMMUNITY (named in official footage breakdowns) | PENDING (awaiting launch verification). Stats fields null until verified in-game.",
-    "updated": "2026-10-04"
+    "version": "2026-10-29.1",
+    "note": "Launch-day data feed. Damage/Break values are readings from official demo, State of Play and preview footage as documented by phantombladezerodb.com (accessed Oct 29 09:00 CST). badge UNVERIFIED = value read off a blurred frame. attack = damage at the highest verified weapon level (see stats.level). In-game verification ongoing.",
+    "updated": "2026-10-29",
+    "primary_source": "https://phantombladezerodb.com/weapons"
   },
   "weapons": [
-    {"slug": "sanguine", "name": "Sanguine", "type": "Longsword", "badge": "COMMUNITY", "source": "official trailer breakdown", "stats": null, "notes": "Shown in August 2026 trailer footage"},
-    {"slug": "jagged-edge", "name": "Jagged Edge", "type": null, "badge": "COMMUNITY", "source": "official trailer breakdown", "stats": null, "notes": null},
-    {"slug": "seamless-death", "name": "Seamless Death", "type": null, "badge": "COMMUNITY", "source": "official trailer breakdown", "stats": null, "notes": null},
-    {"slug": "soft-snake-sword", "name": "Soft Snake Sword", "type": null, "badge": "COMMUNITY", "source": "official trailer breakdown", "stats": null, "notes": null}
+    {"slug": "jagged-steel", "name": "Jagged Steel", "type": "One-Handed", "badge": "OFFICIAL-DATA", "source": "official footage readings (phantombladezerodb.com)", "stats": {"attack": 680, "level": 16, "break": 258, "speed": null, "effect": "Bleed (Blood Loss on every hit)"}, "notes": "Boss weapon: drop from Jagged Steel, the Frenzied Brute. Lv1: 272 dmg / 103 bleed."},
+    {"slug": "white-serpent-crimson-viper", "name": "White Serpent & Crimson Viper", "type": "Dual-Wield", "badge": "OFFICIAL-DATA", "source": "official footage readings (phantombladezerodb.com)", "stats": {"attack": 936, "level": 21, "break": 492, "speed": null, "effect": "Alternating combo ends by throwing the shorter blade; marks extend Guard Broken"}, "notes": "Highest documented damage so far (Lv21). Lv1: 312 dmg / 164 Guard Break."},
+    {"slug": "seamless-death", "name": "Seamless Death", "type": "Dual-Wield", "badge": "OFFICIAL-DATA", "source": "official footage readings (phantombladezerodb.com)", "stats": {"attack": 610, "level": 10, "break": 319, "speed": null, "effect": "Thrown twin rings, melee + ranged; Phantom Step perk replaces dodge with warp"}, "notes": "Lv9→10 upgrade: 12 Twinned Metal, 4 Solvent, 5,850 Remnant Dust (578→610 dmg)."},
+    {"slug": "armybreaker", "name": "Armybreaker", "type": "Two-Handed", "badge": "UNVERIFIED", "source": "official footage, ~ value off blurred frame (phantombladezerodb.com)", "stats": {"attack": 740, "level": 16, "break": null, "speed": null, "effect": "High shield-breaking power on a broad-bladed polearm"}, "notes": "≈740 read off a blurred Lv16 frame."},
+    {"slug": "outlaws-warblade", "name": "Outlaw's Warblade", "type": "Two-Handed", "badge": "UNVERIFIED", "source": "official footage, ~ value off blurred frame (phantombladezerodb.com)", "stats": {"attack": 618, "level": 16, "break": 325, "speed": null, "effect": "Blood-drinking: standard combo hits drain life and heal you"}, "notes": "Lv1: 247 dmg / 129 Guard Break; Lv16 ≈618/325."},
+    {"slug": "the-fanatics-broken-blade", "name": "The Fanatic's Broken Blade", "type": "One-Handed", "badge": "OFFICIAL-DATA", "source": "in-game card via phantombladezerodb.com", "stats": {"attack": 680, "level": null, "break": null, "speed": null, "effect": "Drunken style: ranged attacks while Tipsy/Drunk, Drink restores Sha-Chi"}, "notes": "A.k.a. the Drunken Sword. Perks: Bottomless Drink (Lv5), Boundless Thirst (Lv10)."},
+    {"slug": "sanguine", "name": "Sanguine", "type": "One-Handed", "badge": "UNVERIFIED", "source": "official footage, ~ value off blurred frame (phantombladezerodb.com)", "stats": {"attack": 568, "level": 16, "break": null, "speed": null, "effect": "Soul's own blade: sword-shaped, cleaver-heavy; Power Surge 'Sweeping Blade'"}, "notes": "Lv1: 227 dmg / 119 Guard Break (exact); Lv16 ≈568."},
+    {"slug": "sanguine-twin", "name": "Sanguine Twin", "type": "Dual-Wield", "badge": "OFFICIAL-DATA", "source": "official footage readings (phantombladezerodb.com)", "stats": {"attack": 401, "level": 9, "break": 211, "speed": null, "effect": "Short twin swords, unmatched speed — 'strike like rain'"}, "notes": "Lv1: 223 dmg / 117 Guard Break. Made by the smith Forge."},
+    {"slug": "sanguine-reach", "name": "Sanguine Reach", "type": "Two-Handed", "badge": "OFFICIAL-DATA", "source": "official footage readings (phantombladezerodb.com)", "stats": {"attack": 371, "level": 9, "break": 194, "speed": null, "effect": "Long two-handed blade; Power Surge 'Longblade Chain Slash' (unblockable, 1 Sha-Chi)"}, "notes": "Lv8: 350/184."},
+    {"slug": "scarlet-wraithblade", "name": "Scarlet Wraithblade", "type": "Two-Handed", "badge": "OFFICIAL-DATA", "source": "official footage readings (phantombladezerodb.com)", "stats": {"attack": 494, "level": 11, "break": 258, "speed": null, "effect": "Red Spider Lilies explode for damage + Sha-Chi depletion"}, "notes": "Boss weapon: Hua, Deadly Betrothed. Lv1: 240/117."},
+    {"slug": "tianxuan-bronze-sword", "name": "Tianxuan Bronze Sword", "type": "One-Handed", "badge": "OFFICIAL-DATA", "source": "official footage readings (phantombladezerodb.com)", "stats": {"attack": 272, "level": 1, "break": 142, "speed": null, "effect": "High Shield-Breaking power; perk 'Natural Order' cuts Sha-Chi cost of blocking"}, "notes": "Starter-grade guard sword; Lv1 readings only."},
+    {"slug": "juggernaut", "name": "Juggernaut", "type": "Heavy", "badge": "COMMUNITY", "source": "official footage (behavior only)", "stats": {"attack": null, "level": null, "break": null, "speed": null, "effect": "Parries store charges; at full charge the blade turns red and △ unleashes a sweeping cleave"}, "notes": "Rated hardest-hitting weapon available in the demo. Numeric stats pending in-game verification."},
+    {"slug": "soft-snake-sword", "name": "Soft Snake Sword", "type": "One-Handed", "badge": "COMMUNITY", "source": "official footage (behavior only)", "stats": {"attack": null, "level": null, "break": null, "speed": null, "effect": "Whip-sword: timed fend-off crushes attacker's Sha-Chi; blade barrier cuts thread attacks"}, "notes": "Called the hardest weapon to master in the demo. Numeric stats pending in-game verification."}
   ],
   "phantom_edges": {"confirmed_count": 25, "named": [], "badge": "OFFICIAL", "stats": null},
   "bosses": [
-    {"slug": null, "name": "(list pending — populate from official trailers/demo before Oct 29)", "badge": "PENDING", "source": null, "stats": null}
+    {"slug": "jagged-steel", "name": "Jagged Steel, the Frenzied Brute", "location": "First boss of the final preview build — drops Jagged Steel", "badge": "OFFICIAL"},
+    {"slug": "hua", "name": "Hua, Deadly Betrothed", "location": "Optional boss off the main path, early chapters — drops Scarlet Wraithblade", "badge": "OFFICIAL"}
   ],
   "difficulty": {
     "badge": "OFFICIAL",
     "facts": [
       "Adaptive difficulty system officially confirmed",
-      "Details pending launch verification"
+      "Full boss list and per-boss data pending launch verification"
     ]
   }
 }
