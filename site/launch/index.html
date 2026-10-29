@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Launch Board — Countdown, Editions &amp; Confirmed Facts | PBZ Loadout</title>
+<meta name="description" content="影之刃零（Phantom Blade Zero）发售倒计时、版本对比与全部官方确证事实。只挂 OFFICIAL 徽章的数据，实测内容解锁后回填。">
+<link rel="canonical" href="https://www.pbzloadout.xyz/launch/">
+<style>
+:root{--bg:#0d0b10;--panel:#161219;--line:#2a2130;--ink:#efe9f2;--dim:#a89bb0;--gold:#d4a24e;--red:#c0392b;--green:#3f7d4e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:15px/1.8 -apple-system,"PingFang SC","Noto Sans SC",sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:32px 20px 80px}
+a{color:var(--gold);text-decoration:none}
+header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:28px}
+.kicker{color:var(--dim);font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+h1{font-size:26px;margin:6px 0 4px;font-weight:700}
+.sub{color:var(--dim)}
+.countdown{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:22px;text-align:center;margin:26px 0}
+.countdown .label{color:var(--dim);font-size:13px}
+.countdown .clock{font:700 40px/1.2 ui-monospace,Menlo,monospace;color:var(--gold);margin:8px 0 4px;letter-spacing:.04em}
+.countdown .out{font:700 30px/1.4 sans-serif;color:var(--green);display:none}
+.badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.08em;padding:2px 7px;border-radius:4px;vertical-align:2px}
+.badge.official{background:#1d3a26;color:#7fd49a;border:1px solid #2f5c3d}
+.badge.post-launch{background:#3a2a1d;color:#d4a24e;border:1px solid #5c462f}
+section{margin:34px 0}
+h2{font-size:18px;margin-bottom:12px;padding-left:10px;border-left:3px solid var(--gold)}
+table{width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-size:14px}
+th,td{padding:10px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--dim);font-size:12px;letter-spacing:.08em}
+tr:last-child td{border-bottom:none}
+ul{list-style:none}
+ul li{padding:8px 0 8px 14px;border-left:2px solid var(--line);margin-left:4px}
+.honesty{background:#1a1212;border:1px solid #4a2626;border-radius:10px;padding:16px 18px;margin:26px 0;font-size:14px}
+.honesty b{color:#e58c7c}
+details{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:10px 0}
+summary{cursor:pointer;font-weight:600}
+footer{border-top:1px solid var(--line);margin-top:44px;padding-top:16px;color:var(--dim);font-size:12px}
+img.hero{width:100%;border-radius:10px;border:1px solid var(--line);margin:18px 0}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "什么时候解锁？", "acceptedAnswer": {"@type": "Answer", "text": "北京时间 2026 年 10 月 29 日上午 10:00（PS5 / Steam / Epic / WeGame / TapTap PC 同步）。"}}, {"@type": "Question", "name": "多少钱？", "acceptedAnswer": {"@type": "Answer", "text": "Steam 标准版 ¥268 / $59.99，豪华版见官网。发售前未官宣价格变动的一律以商店页为准。"}}, {"@type": "Question", "name": "PC 配置要求？", "acceptedAnswer": {"@type": "Answer", "text": "官方已公布 PC 配置（官网 News → System Requirements），本站不转抄——以官方页为准。"}}, {"@type": "Question", "name": "有 demo 吗？", "acceptedAnswer": {"@type": "Answer", "text": "此前有全球巡回线下试玩与媒体试玩版，商店页暂无公开 demo（以商店页实时状态为准）。"}}, {"@type": "Question", "name": "本站数据可信吗？", "acceptedAnswer": {"@type": "Answer", "text": "本站只写带 OFFICIAL 徽章的官方确证事实；游戏解锁前不可能存在的实测数据一律挂 POST-LAUNCH 徽章，解锁后回填。"}}]}</script>
+</head><body><div class="wrap">
+<header>
+  <div class="kicker">Phantom Blade Zero · Launch Board</div>
+  <h1>影之刃零 · 发售看板</h1>
+  <div class="sub">倒计时 / 版本怎么买 / 只有官方确证的事实 · 非官方粉丝页 · <a href="https://www.pbzloadout.xyz/">← 武器库主站 PBZ Loadout</a></div>
+</header>
+
+<img class="hero" src="hero.jpg" alt="影之刃零 游戏画面（Steam 官方截图）">
+
+
+<div class="countdown" id="cd">
+  <div class="label">距离解锁（北京时间 2026-10-29 10:00）</div>
+  <div class="clock" id="clock">--:--:--</div>
+  <div class="out" id="out">已解锁 · OUT NOW</div>
+</div>
+<script>
+(function(){
+  var t = new Date("2026-10-29T10:00:00+08:00").getTime();
+  var c = document.getElementById('clock'), o = document.getElementById('out');
+  function tick(){
+    var d = t - Date.now();
+    if(d <= 0){ c.style.display='none'; o.style.display='block'; return; }
+    var h = Math.floor(d/3600000), m = Math.floor(d%3600000/60000), s = Math.floor(d%60000/1000);
+    c.textContent = String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+    setTimeout(tick, 1000);
+  }
+  tick();
+})();
+</script>
+
+<div class="honesty"><b>诚实牌：</b>游戏解锁前，任何「武器梯度榜」「Build 攻略」「实测数值」都不可能存在。
+本站所有信息挂 <span class="badge official">OFFICIAL</span> 徽章并可溯源；解锁后才会有的数据挂 <span class="badge post-launch">POST-LAUNCH</span> 徽章，届时回填。</div>
+
+<section><h2>版本对比 · 怎么买</h2>
+<table><tr><th>版本</th><th>内容</th><th>数据源</th></tr><tr><td style="white-space:nowrap"><b>标准版</b></td><td>¥268 / $59.99<br><span style="color:var(--dim);font-size:13px">游戏本体<br>预购奖励：聚宝盆饰品（提前解锁，游戏进程也可获得）<br>预购奖励：外观「传承」（提前解锁，游戏进程也可获得）</span></td><td><span class="badge official">OFFICIAL</span></td></tr><tr><td style="white-space:nowrap"><b>豪华版</b></td><td>¥328 / $69.99<br><span style="color:var(--dim);font-size:13px">游戏本体<br>预购奖励（同标准版）<br>专属外观：武林传说<br>专属外观：机械魔躯<br>游戏内特典设定集<br>游戏内特典音乐集</span></td><td><span class="badge official">OFFICIAL</span></td></tr><tr><td style="white-space:nowrap"><b>实体典藏版</b></td><td>¥1199 · 全球限量 2 万套<br><span style="color:var(--dim);font-size:13px">豪华版游戏兑换码<br>实体周边礼盒（典藏雕塑等）</span></td><td><span class="badge official">OFFICIAL</span></td></tr></table>
+<p style="color:var(--dim);font-size:13px;margin-top:8px">预购奖励均为「提前解锁」，可通过游戏进程获得——官方商店页原文。</p></section>
+
+<section><h2>已确认事实（发售前可查证）</h2><ul><li><b>甄子丹担任监制并为「魔渊」面捕动捕</b> <span class="badge official">OFFICIAL</span><br><span style="color:var(--dim);font-size:13px">官方 2026-08-12 预购公告：甄子丹自 2023 年起任监制，甄家班深度参与研发 — 来源：官方账号公告</span></li><li><b>三十余种主武器</b> <span class="badge official">OFFICIAL</span><br><span style="color:var(--dim);font-size:13px">官方商店页原文：「三十余种主武器，二十多门奇诡武装，在刀光剑影间从败者手中夺来」 — 来源：Steam 商店页</span></li><li><b>二十多门奇诡武装（副武装）</b> <span class="badge official">OFFICIAL</span><br><span style="color:var(--dim);font-size:13px">同上，官方描述 — 来源：Steam 商店页</span></li><li><b>66 日生存期限</b> <span class="badge official">OFFICIAL</span><br><span style="color:var(--dim);font-size:13px">主角 Soul 心脏受创，命余六十六日——官方故事设定 — 来源：Steam 商店页</span></li><li><b>虚幻 5 引擎 + 动作捕捉</b> <span class="badge official">OFFICIAL</span><br><span style="color:var(--dim);font-size:13px">官方描述：UE5 与崭新动捕技术，武术指导真人出演 — 来源：Steam 商店页</span></li><li><b>平台：PS5 / Steam / Epic / WeGame / TapTap PC</b> <span class="badge official">OFFICIAL</span><br><span style="color:var(--dim);font-size:13px">首发五平台，PS5 享有 12 个月限时独占内容期 — 来源：官方公告</span></li><li><b>PC 预载已于 10-26 开放</b> <span class="badge official">OFFICIAL</span><br><span style="color:var(--dim);font-size:13px">Steam 开发者公告：10-26 19:00 PDT 起 PC 预载 — 来源：Steam 公告</span></li><li><b>Steam 愿望单 162 万+（预购开启时）</b> <span class="badge official">OFFICIAL</span><br><span style="color:var(--dim);font-size:13px">预购开启当天登顶 Steam 全球与国区热销榜 — 来源：官方/媒体 2026-08-12</span></li></ul></section>
+
+<section><h2>解锁后回填（POST-LAUNCH）</h2><ul><li>武器完整名单与数值 <span class="badge post-launch">POST-LAUNCH</span></li><li>Boss 名单与掉落 <span class="badge post-launch">POST-LAUNCH</span></li><li>Build 计算器 <span class="badge post-launch">POST-LAUNCH</span></li><li>Steam 首发在线数 / 首评 <span class="badge post-launch">POST-LAUNCH</span></li></ul></section>
+
+<section><h2>发售前夜的搜索现场</h2>
+<p style="color:var(--dim);font-size:13px;margin-bottom:10px">2026-10-28 23:40 实扫，解锁前约 10 小时，pages.dev 上已有 5 个「攻略站」就位：</p>
+<ul><li style="color:var(--dim)">phantom-blade-zero-guide.pages.dev — Wiki: Guides, Weapons &amp; Release Info</li><li style="color:var(--dim)">phantombladezero.pages.dev — Guide &amp; Wiki: Story, Combat, Weapons</li><li style="color:var(--dim)">pbz-guide.pages.dev — Guide: Combat, Bosses, Launch Info</li><li style="color:var(--dim)">phantom-blade-zero.pages.dev — Wiki: Complete Guide, Builds, Bosses</li><li style="color:var(--dim)">phantom-blade-zero-hub.pages.dev — Hub: Release Date, Languages &amp; Buying</li></ul>
+<p style="color:var(--dim);font-size:13px;margin-top:10px">其中至少一个已上线「武器梯度榜」页面——游戏尚未解锁，实测梯度不可能存在。这就是本站只打诚实牌的原因。</p></section>
+
+<section><h2>常见问题</h2><details><summary>什么时候解锁？</summary><p style="color:var(--dim);margin-top:6px">北京时间 2026 年 10 月 29 日上午 10:00（PS5 / Steam / Epic / WeGame / TapTap PC 同步）。</p></details><details><summary>多少钱？</summary><p style="color:var(--dim);margin-top:6px">Steam 标准版 ¥268 / $59.99，豪华版见官网。发售前未官宣价格变动的一律以商店页为准。</p></details><details><summary>PC 配置要求？</summary><p style="color:var(--dim);margin-top:6px">官方已公布 PC 配置（官网 News → System Requirements），本站不转抄——以官方页为准。</p></details><details><summary>有 demo 吗？</summary><p style="color:var(--dim);margin-top:6px">此前有全球巡回线下试玩与媒体试玩版，商店页暂无公开 demo（以商店页实时状态为准）。</p></details><details><summary>本站数据可信吗？</summary><p style="color:var(--dim);margin-top:6px">本站只写带 OFFICIAL 徽章的官方确证事实；游戏解锁前不可能存在的实测数据一律挂 POST-LAUNCH 徽章，解锁后回填。</p></details></section>
+
+<footer>
+  非官方粉丝项目，与 S-GAME / 灵游坊无关。「影之刃」「Phantom Blade」为 S-GAME 商标。<br>
+  数据层：<a href="https://www.pbzloadout.xyz/launch/facts.json">facts.json</a> · 最后更新：<span id="ts"></span>
+  <script>document.getElementById('ts').textContent=document.lastModified</script>
+</footer>
+</div></body></html>

@@ -46,6 +46,8 @@
     </nav>
   </div>
 </header>
+<a href="/launch/" style="display:block;max-width:900px;margin:18px auto;padding:14px 20px;border:1px solid #d4a24e;border-radius:8px;text-align:center;text-decoration:none"><b style="color:#d4a24e">⚡ Launch Day Board — live countdown, edition comparison &amp; confirmed facts →</b></a>
+
 
 <div class="wrap">
   <div class="hero">
@@ -59,6 +61,7 @@
         <a class="cta" href="/weapons/">Enter the arsenal →</a>
         <a class="cta" href="/bosses/" style="margin-left:12px">All bosses →</a>
         <div class="countdown"><span class="cd-l">LAUNCH</span><b class="cd-live" id="cd">&mdash;</b><span class="cd-l">3M+ WISHLISTS</span></div>
+        <p style="margin:10px 0 0;font-size:14px;color:var(--ink-dim)">Global unlock <b>Oct 29, 10:00 AM CST</b> (PS5 · Steam · Epic). Pre-load is live now (~145 GB, SSD required on PC) — no early access for any edition.</p>
       </div>
       <form class="notify" id="notify-form">
         <input type="email" name="email" id="notify-email" required placeholder="you@example.com" aria-label="Email">
@@ -152,7 +155,7 @@
 </footer>
 <script>document.documentElement.classList.add("js");
 (function(){
-  var t=new Date("2026-10-29T00:00:00+08:00").getTime();
+  var t=new Date("2026-10-29T10:00:00+08:00").getTime();
   function tick(){
     var d=Math.max(0,t-Date.now());
     var el=document.getElementById("cd");

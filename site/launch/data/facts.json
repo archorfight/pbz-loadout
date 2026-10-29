@@ -1,0 +1,121 @@
+{
+  "game": "影之刃零 Phantom Blade Zero",
+  "launch_utc": "2026-10-29T10:00:00+08:00",
+  "sources": {
+    "launch_time": "官方公告 2026-10-22（北京时间 10-29 10:00 解锁）",
+    "store": "Steam appdetails appid 4115450（2026-10-28 抓取，docs/steam-cn.json）"
+  },
+  "editions": [
+    {
+      "name": "标准版",
+      "price": "¥268 / $59.99",
+      "includes": [
+        "游戏本体",
+        "预购奖励：聚宝盆饰品（提前解锁，游戏进程也可获得）",
+        "预购奖励：外观「传承」（提前解锁，游戏进程也可获得）"
+      ],
+      "badge": "OFFICIAL"
+    },
+    {
+      "name": "豪华版",
+      "price": "¥328 / $69.99",
+      "includes": [
+        "游戏本体",
+        "预购奖励（同标准版）",
+        "专属外观：武林传说",
+        "专属外观：机械魔躯",
+        "游戏内特典设定集",
+        "游戏内特典音乐集"
+      ],
+      "badge": "OFFICIAL"
+    },
+    {
+      "name": "实体典藏版",
+      "price": "¥1199 · 全球限量 2 万套",
+      "includes": [
+        "豪华版游戏兑换码",
+        "实体周边礼盒（典藏雕塑等）"
+      ],
+      "badge": "OFFICIAL"
+    }
+  ],
+  "confirmed": [
+    {
+      "item": "甄子丹担任监制并为「魔渊」面捕动捕",
+      "detail": "官方 2026-08-12 预购公告：甄子丹自 2023 年起任监制，甄家班深度参与研发",
+      "source": "官方账号公告",
+      "badge": "OFFICIAL"
+    },
+    {
+      "item": "三十余种主武器",
+      "detail": "官方商店页原文：「三十余种主武器，二十多门奇诡武装，在刀光剑影间从败者手中夺来」",
+      "source": "Steam 商店页",
+      "badge": "OFFICIAL"
+    },
+    {
+      "item": "二十多门奇诡武装（副武装）",
+      "detail": "同上，官方描述",
+      "source": "Steam 商店页",
+      "badge": "OFFICIAL"
+    },
+    {
+      "item": "66 日生存期限",
+      "detail": "主角 Soul 心脏受创，命余六十六日——官方故事设定",
+      "source": "Steam 商店页",
+      "badge": "OFFICIAL"
+    },
+    {
+      "item": "虚幻 5 引擎 + 动作捕捉",
+      "detail": "官方描述：UE5 与崭新动捕技术，武术指导真人出演",
+      "source": "Steam 商店页",
+      "badge": "OFFICIAL"
+    },
+    {
+      "item": "平台：PS5 / Steam / Epic / WeGame / TapTap PC",
+      "detail": "首发五平台，PS5 享有 12 个月限时独占内容期",
+      "source": "官方公告",
+      "badge": "OFFICIAL"
+    },
+    {
+      "item": "PC 预载已于 10-26 开放",
+      "detail": "Steam 开发者公告：10-26 19:00 PDT 起 PC 预载",
+      "source": "Steam 公告",
+      "badge": "OFFICIAL"
+    },
+    {
+      "item": "Steam 愿望单 162 万+（预购开启时）",
+      "detail": "预购开启当天登顶 Steam 全球与国区热销榜",
+      "source": "官方/媒体 2026-08-12",
+      "badge": "OFFICIAL"
+    }
+  ],
+  "post_launch": [
+    {
+      "item": "武器完整名单与数值",
+      "badge": "POST-LAUNCH"
+    },
+    {
+      "item": "Boss 名单与掉落",
+      "badge": "POST-LAUNCH"
+    },
+    {
+      "item": "Build 计算器",
+      "badge": "POST-LAUNCH"
+    },
+    {
+      "item": "Steam 首发在线数 / 首评",
+      "badge": "POST-LAUNCH"
+    }
+  ],
+  "competitor_scan": {
+    "when": "2026-10-28 23:40",
+    "found": [
+      "phantom-blade-zero-guide.pages.dev — Wiki: Guides, Weapons & Release Info",
+      "phantombladezero.pages.dev — Guide & Wiki: Story, Combat, Weapons",
+      "pbz-guide.pages.dev — Guide: Combat, Bosses, Launch Info",
+      "phantom-blade-zero.pages.dev — Wiki: Complete Guide, Builds, Bosses",
+      "phantom-blade-zero-hub.pages.dev — Hub: Release Date, Languages & Buying"
+    ],
+    "note": "发售前夜（解锁前 10 小时）已有 5 个壳站就位，其中至少一个已排「武器梯度榜」页面——游戏尚未解锁，任何实测梯度不可能存在"
+  }
+}
