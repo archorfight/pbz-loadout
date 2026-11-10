@@ -14,7 +14,7 @@ weapons = get("https://pbz-loadout.pages.dev/weapons/")
 checks.append(("weapons OFFICIAL badges", weapons.count("OFFICIAL") >= 4))
 faq = get("https://pbz-loadout.pages.dev/faq/")
 checks.append(("FAQPage JSON-LD", "FAQPage" in faq))
-checks.append(("data policy notice", "We will not invent stats" in home))
+checks.append(("data policy notice", "We still do not invent stats" in home))
 
 fails = [n for n, ok in checks if not ok]
 for n, ok in checks:
